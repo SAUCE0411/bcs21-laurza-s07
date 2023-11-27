@@ -1,0 +1,46 @@
+'''
+    Mini-Activity
+        - create a new file name it linkedlist_activity.py
+            inside the discussion folder
+
+        create a python program that will simulate the linked list to form 
+        the name "LINUS TORVALDS" using these input values:[S, L, T, O, R, N, S, U, D, L, A, V]
+
+'''
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end="")
+            current = current.next
+        print()
+
+# Arrange input values to form the name "LINUS TORVALDS".
+input_values = ['L', 'I', 'N', 'U', 'S', ' ', 'T', 'O', 'R', 'V', 'A', 'L', 'D', 'S']
+
+# Create a linked list
+linked_list = LinkedList()
+for value in input_values:
+    linked_list.append(value)
+
+# Display the linked list to form the name
+linked_list.display()
